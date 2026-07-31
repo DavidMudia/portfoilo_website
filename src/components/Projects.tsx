@@ -15,8 +15,8 @@ export default function Projects() {
       gradient: 'from-blue-500 to-cyan-500',
       icon: '📊',
       deployed: 'Vercel',
-      demoUrl: 'https://axylum-sales-suite-alpha.vercel.app/dashboard', // ✅ added
-      githubUrl: 'https://github.com/yourusername/sales-suite', // placeholder
+      demoUrl: 'https://axylum-sales-suite-alpha.vercel.app/dashboard',
+      githubUrl: 'https://github.com/yourusername/sales-suite',
     },
     {
       title: 'Task Manager Pro',
@@ -32,7 +32,7 @@ export default function Projects() {
       gradient: 'from-purple-500 to-pink-500',
       icon: '✓',
       deployed: 'Vercel',
-      demoUrl: 'https://task-manager-xi-tan-35.vercel.app/', // ✅ added
+      demoUrl: 'https://task-manager-xi-tan-35.vercel.app/',
       githubUrl: 'https://github.com/yourusername/task-manager',
     },
     {
@@ -49,7 +49,7 @@ export default function Projects() {
       gradient: 'from-emerald-500 to-teal-500',
       icon: '🛒',
       deployed: 'Vercel',
-      demoUrl: 'https://mudia-stores.vercel.app/', // ✅ added
+      demoUrl: 'https://mudia-stores.vercel.app/',
       githubUrl: 'https://github.com/yourusername/ecommerce',
     },
     {
@@ -66,7 +66,7 @@ export default function Projects() {
       gradient: 'from-sky-500 to-blue-500',
       icon: '🌤️',
       deployed: 'Vercel',
-      demoUrl: null, // no demo yet
+      demoUrl: null,
       githubUrl: 'https://github.com/yourusername/weather-dashboard',
     },
     {
@@ -134,24 +134,27 @@ export default function Projects() {
               className="group backdrop-blur-xl bg-white/[0.06] border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-cyan-600/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-600/20"
               style={{ animationDelay: `${idx * 50}ms` }}
             >
-              {/* Project header */}
-              <div className="p-8 relative border-b border-white/10">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-5xl">{project.icon}</div>
-                  <div className="px-3 py-1 rounded-full bg-cyan-600/15 backdrop-blur-sm border border-cyan-600/30">
-                    <span className="text-cyan-500 text-xs font-semibold">{project.deployed}</span>
+              {/* Project header – reduced padding on mobile */}
+              <div className="p-4 sm:p-8 relative border-b border-white/10">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className="text-3xl sm:text-5xl">{project.icon}</div>
+                  <div className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-cyan-600/15 backdrop-blur-sm border border-cyan-600/30">
+                    <span className="text-cyan-500 text-[10px] sm:text-xs font-semibold">{project.deployed}</span>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-cyan-500 text-sm font-medium">{project.category}</p>
+                <h3 className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">{project.title}</h3>
+                <p className="text-cyan-500 text-xs sm:text-sm font-medium">{project.category}</p>
               </div>
 
-              {/* Project content */}
-              <div className="p-6">
-                <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
+              {/* Project content – reduced padding */}
+              <div className="p-4 sm:p-6">
+                {/* Description – line clamp on mobile */}
+                <p className="text-slate-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {project.description}
+                </p>
 
-                {/* Features */}
-                <div className="mb-6">
+                {/* Features – hidden on small screens */}
+                <div className="hidden sm:block mb-6">
                   <h4 className="text-sm font-semibold text-cyan-500 mb-3 uppercase tracking-wider">Key Features</h4>
                   <ul className="space-y-2">
                     {project.features.map((feature) => (
@@ -165,13 +168,13 @@ export default function Projects() {
                   </ul>
                 </div>
 
-                {/* Tech stack */}
+                {/* Tech stack – smaller tags on mobile */}
                 <div className="pt-4 border-t border-white/10">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 rounded-lg backdrop-blur-md bg-white/[0.05] border border-white/10 text-slate-300 text-xs font-medium"
+                        className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg backdrop-blur-md bg-white/[0.05] border border-white/10 text-slate-300 text-[10px] sm:text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -179,37 +182,35 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Action buttons */}
-                <div className="mt-6 flex gap-3">
-                  {/* View Demo / Coming Soon */}
+                {/* Action buttons – smaller on mobile */}
+                <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
                   {project.demoUrl ? (
                     <a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2 px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium hover:from-cyan-400 hover:to-blue-400 transition-all text-sm text-center"
+                      className="flex-1 py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium hover:from-cyan-400 hover:to-blue-400 transition-all text-xs sm:text-sm text-center"
                     >
                       View Demo
                     </a>
                   ) : (
                     <button
                       disabled
-                      className="flex-1 py-2 px-4 rounded-lg bg-slate-700/50 text-slate-400 font-medium text-sm cursor-not-allowed"
+                      className="flex-1 py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg bg-slate-700/50 text-slate-400 font-medium text-xs sm:text-sm cursor-not-allowed"
                     >
                       Coming Soon
                     </button>
                   )}
 
-                  {/* GitHub / Source Code link */}
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2 px-4 rounded-lg border border-cyan-600/50 text-cyan-500 hover:bg-cyan-600/10 transition-all text-sm flex items-center justify-center"
+                      className="py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border border-cyan-600/50 text-cyan-500 hover:bg-cyan-600/10 transition-all text-xs sm:text-sm flex items-center justify-center"
                       aria-label="Source Code"
                     >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                         <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                       </svg>
