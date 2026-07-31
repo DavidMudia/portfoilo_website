@@ -8,12 +8,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+    <section id="home" className="relative min-h-[90vh] flex items-center justify-center px-6 pt-16">
       <div className="w-full max-w-7xl mx-auto text-center">
-        {/* Glassy card – responsive padding */}
         <div className="backdrop-blur-xl bg-white/[0.06] border border-white/10 rounded-3xl p-6 sm:p-12 lg:p-16 shadow-2xl shadow-black/20">
-          
-          {/* Profile Picture – smaller on mobile */}
+          {/* Profile Picture */}
           <div className="mb-6 sm:mb-10 flex justify-center">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-full blur-lg group-hover:blur-xl transition-all opacity-40 group-hover:opacity-60" />
@@ -65,7 +63,7 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* CTA Buttons – smaller on mobile */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <button
               onClick={scrollToProjects}

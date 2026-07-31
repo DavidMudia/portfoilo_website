@@ -7,7 +7,7 @@ interface NavigationProps {
 
 export default function Navigation({ activeSection }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // ← new state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +28,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false); // close menu after navigation
+      setIsMenuOpen(false);
     }
   };
 
@@ -43,11 +43,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'backdrop-blur-2xl bg-white/[0.05] border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-slate-900/80 border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
